@@ -6,4 +6,5 @@
 - [x] LinkedIn left out (user choice, for now)
 - [x] GitHub left out (user choice)
 - [ ] Research profile link — waiting on user (placeholder shown meanwhile)
-- [ ] Rover build photos — waiting on user
+- [x] Rover build photos added to the rover page (real photo as page hero, CAD chassis views in a Design & build section)
+- [x] Home page rover card keeps the generated artwork (user choice — photos stay on the rover page)

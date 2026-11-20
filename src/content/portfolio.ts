@@ -4,6 +4,9 @@ import suspensionArt from "@/assets/suspension-art.webp";
 import vistaArt from "@/assets/vista-art.webp";
 import accessmapArt from "@/assets/accessmap-art.webp";
 import portraitAsset from "@/assets/raqeeb-portrait.webp.asset.json";
+import roverPhotoAsset from "@/assets/rover-photo.webp.asset.json";
+import roverCad1Asset from "@/assets/rover-cad-1.webp.asset.json";
+import roverCad2Asset from "@/assets/rover-cad-2.webp.asset.json";
 
 export const person = {
   name: "Mohammad Abdul Raqeeb",
@@ -67,6 +70,8 @@ export type Project = {
   description: string;
   image: string;
   imageAlt: string;
+  /** Real photo used on the project page hero; the home card keeps `image`. */
+  heroImage?: { src: string; alt: string; aspect: string };
   theme: "vermilion" | "violet" | "electric";
   tech: string[];
 };
@@ -84,6 +89,11 @@ export const projects: Project[] = [
       "An experimental robotic rover developed for disaster inspection and environmental mapping. It combines embedded electronics, sensor integration, motor control, wireless communication and robotic movement into one platform.",
     image: roverArt,
     imageAlt: "Abstract orange chrome sculpture of a six-wheeled rover",
+    heroImage: {
+      src: roverPhotoAsset.url,
+      alt: "The assembled rover on a wooden table: matte black 3D-printed body, OLED reading RAQEEB ROBOT and MODE: MANUAL, ultrasonic sensor in the front opening and knobby rubber tyres",
+      aspect: "7 / 8",
+    },
     theme: "vermilion",
     tech: ["ESP32 DevKit", "TB6612FNG", "HC-SR04", "SH1106 OLED", "LM2596", "2× 18650", "Bluetooth"],
   },
@@ -116,6 +126,26 @@ export const projects: Project[] = [
     tech: ["Suspension dynamics", "Energy conversion", "Theoretical modelling", "Literature review"],
   },
 ];
+
+export const roverBuild = {
+  intro:
+    "The shell starts as a model. These two views are the CAD part; the photo at the top of this page is the same cover printed in matte black PLA and fitted with the display and sensor.",
+  shots: [
+    {
+      src: roverCad1Asset.url,
+      alt: "CAD model of the rover chassis top cover seen from the front three-quarter, showing the display recess and sensor opening",
+      label: "Chassis cover — CAD, front",
+      caption:
+        "Modelled in SOLIDWORKS: the recess that holds the display, the opening for the ultrasonic sensor, the ventilation slots and the wheel arch.",
+    },
+    {
+      src: roverCad2Asset.url,
+      alt: "CAD model of the rover chassis top cover seen from the rear three-quarter, showing the cooling slots and the curved wheel well",
+      label: "Chassis cover — CAD, rear",
+      caption: "The same part from the opposite side — cooling slots and the curved wheel well, before it was printed.",
+    },
+  ],
+};
 
 export const roverComponents = [
   { id: "esp32", name: "ESP32 DevKit", role: "Brain", note: "Dual-core microcontroller handling control logic, sensor reads and the Bluetooth link." },

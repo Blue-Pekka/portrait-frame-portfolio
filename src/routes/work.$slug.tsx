@@ -6,6 +6,7 @@ import { caseStudies } from "@/content/case-studies";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { RoverDiagram } from "@/components/site/RoverDiagram";
+import { RoverBuild } from "@/components/site/RoverBuild";
 import { GesturePipeline } from "@/components/site/GesturePipeline";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -79,8 +80,17 @@ function ProjectPage() {
               </p>
             </div>
             <div className="md:col-span-5">
-              <div data-img-reveal className="aspect-[4/5] overflow-hidden">
-                <img src={project.image} alt={project.imageAlt} className="h-full w-full object-cover" data-parallax="0.1" />
+              <div
+                data-img-reveal
+                className="overflow-hidden"
+                style={{ aspectRatio: project.heroImage?.aspect ?? "4 / 5" }}
+              >
+                <img
+                  src={project.heroImage?.src ?? project.image}
+                  alt={project.heroImage?.alt ?? project.imageAlt}
+                  className="h-full w-full object-cover"
+                  data-parallax="0.1"
+                />
               </div>
             </div>
           </div>
@@ -113,6 +123,9 @@ function ProjectPage() {
             </p>
           )}
         </section>
+
+        {/* Design & build (rover) */}
+        {project.slug === "esp32-rover" && <RoverBuild />}
 
         {/* Interactive module */}
         {project.slug === "esp32-rover" && (
