@@ -4,5 +4,6 @@
 - [x] Use uploaded portrait as the hero image (and in About)
 - [x] Contact email added
 - [x] LinkedIn left out (user choice, for now)
-- [ ] GitHub, research links — waiting on user (placeholders shown meanwhile)
+- [x] GitHub left out (user choice)
+- [ ] Research profile link — waiting on user (placeholder shown meanwhile)
 - [ ] Rover build photos — waiting on user

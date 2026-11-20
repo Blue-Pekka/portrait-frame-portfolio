@@ -28,7 +28,6 @@ export const navItems = [
 /** Contact links stay null until the real URL is provided — never fabricate them. */
 export const contactLinks: { label: string; href: string | null; display: string }[] = [
   { label: "Email", href: "mailto:a.raqeeb2468@gmail.com", display: "a.raqeeb2468@gmail.com" },
-  { label: "GitHub", href: null, display: "Profile link coming soon" },
   { label: "Research", href: null, display: "Research profile coming soon" },
 ];
 
