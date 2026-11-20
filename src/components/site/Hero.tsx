@@ -1,10 +1,9 @@
-import { lazy, Suspense, useEffect, useRef } from "react";
-import { ClientOnly } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import { ArrowDownRight } from "lucide-react";
 import { person } from "@/content/portfolio";
 import { scrollToSection } from "@/lib/motion";
+import { SculptureSlot } from "./SculptureSlot";
 
-const HeroSculpture = lazy(() => import("./HeroSculpture"));
 
 const WORDS = ["Think.", "Build.", "Explore."];
 
@@ -109,23 +108,16 @@ export function Hero() {
         data-hero-sculpture
         className="absolute right-[38vw] top-[34vh] z-20 hidden h-[44vh] w-[44vh] md:block lg:right-[33vw]"
       >
-        <ClientOnly fallback={null}>
-          <Suspense fallback={null}>
-            <HeroSculpture />
-          </Suspense>
-        </ClientOnly>
-        <span className="ui-label pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.6rem]">
-          [ Hold & drag ]
-        </span>
+        <SculptureSlot media="(min-width: 768px)">
+          <span className="ui-label pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.6rem]">
+            [ Hold & drag ]
+          </span>
+        </SculptureSlot>
       </div>
 
       {/* Mobile sculpture */}
       <div className="relative z-20 -mt-44 ml-auto mr-1 h-48 w-48 md:hidden" aria-hidden>
-        <ClientOnly fallback={null}>
-          <Suspense fallback={null}>
-            <HeroSculpture />
-          </Suspense>
-        </ClientOnly>
+        <SculptureSlot media="(max-width: 767.98px)" />
       </div>
 
       {/* Bottom bar */}

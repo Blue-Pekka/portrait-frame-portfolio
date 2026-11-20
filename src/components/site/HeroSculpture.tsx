@@ -56,7 +56,7 @@ function Sculpture({ reduced }: { reduced: boolean }) {
   );
 }
 
-export default function HeroSculpture() {
+export default function HeroSculpture({ onContextLost }: { onContextLost?: () => void } = {}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(true);
   const [reduced, setReduced] = useState(false);
@@ -77,6 +77,13 @@ export default function HeroSculpture() {
         dpr={[1, 1.75]}
         camera={{ position: [0, 0, 6.2], fov: 38 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        onCreated={({ gl }) => {
+          gl.domElement.addEventListener("webglcontextlost", (e) => {
+            e.preventDefault();
+            onContextLost?.();
+          });
+        }}
+        fallback={null}
         aria-label="Interactive 3D sculpture — drag to rotate"
         role="img"
       >

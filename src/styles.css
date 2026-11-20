@@ -209,6 +209,17 @@
   }
 }
 
+/* Static chrome orb used when the device can't render the 3D sculpture. */
+@utility sculpture-fallback {
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle closest-side at 36% 32%, var(--paper) 0 10%, transparent 40%),
+    radial-gradient(circle closest-side, transparent 0 62%, var(--ink) 64% 74%, transparent 76%),
+    radial-gradient(circle closest-side at 55% 60%, var(--primary) 0 35%, var(--ink) 100%);
+  transform: scale(0.62);
+  box-shadow: 0 2rem 4rem -1rem oklch(0.134 0 0 / 0.45);
+}
+
 @utility halftone {
   background-image: radial-gradient(circle at center, currentColor 1px, transparent 1.4px);
   background-size: 7px 7px;
