@@ -95,10 +95,14 @@ export function Contact() {
             {contactLinks.map((l) => (
               <li key={l.label} className="border-b border-ink/40">
                 {l.href ? (
-                  <a href={l.href} target="_blank" rel="noreferrer" className="group flex items-center justify-between py-4">
+                  <a
+                    href={l.href}
+                    {...(l.href.startsWith("mailto:") ? {} : { target: "_blank", rel: "noreferrer" })}
+                    className="group flex min-w-0 items-center justify-between gap-4 py-4"
+                  >
                     <span className="ui-label">{l.label}</span>
-                    <span className="flex items-center gap-2 font-ui">
-                      {l.display}
+                    <span className="flex min-w-0 items-center gap-2 font-ui">
+                      <span className="truncate">{l.display}</span>
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </span>
                   </a>
