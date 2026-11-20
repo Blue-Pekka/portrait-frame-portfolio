@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All portfolio copy and data live in `src/content/` (portfolio.ts, case-studies.ts); components only render it — keeps edits to text in one place.
+- Home is one scrolling page of section components in `src/components/site/`; project case studies are separate routes at `/work/$slug` so each has its own URL and metadata.
+- Scroll motion goes through `useReveal` data attributes (`data-reveal`, `data-reveal-lines`, `data-img-reveal`, `data-parallax`, `data-draw`) and must leave content visible without JS or with reduced motion.
+- The 3D hero sculpture is lazy-loaded behind `ClientOnly` — three.js must never load during SSR.
+- Contact form inserts straight into `contact_messages` from the browser; RLS allows anonymous insert only, no reads.
