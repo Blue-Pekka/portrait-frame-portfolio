@@ -8,4 +8,4 @@
 - [ ] Research profile link — waiting on user (placeholder shown meanwhile)
 - [x] Rover build photos added to the rover page (real photo as page hero, CAD chassis views in a Design & build section)
 - [x] Home page rover card keeps the generated artwork (user choice — photos stay on the rover page)
-- [ ] Shorten the site for undergraduate admission use — trim copy, merge sections (waiting on how aggressive)
+- [x] Shorten the site for undergraduate admission use — merge + trim done: initiatives folded into Research, achievements + skills on one screen, copy cut across the site

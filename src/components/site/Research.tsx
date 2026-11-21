@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
-import { researchInterests } from "@/content/portfolio";
+import { researchInterests, initiatives } from "@/content/portfolio";
 import liquidChrome from "@/assets/liquid-chrome.webp";
 
 const paperSections = ["Research motivation", "Theoretical framework", "Methodology", "Engineering concepts", "Findings & limitations"];
@@ -16,7 +16,7 @@ export function Research() {
 
       <div className="relative z-10 px-5 md:px-8">
         <SectionHeading
-          index="05"
+          index="04"
           label="Research & exploration"
           id="research-title"
           size="lg"
@@ -89,6 +89,30 @@ export function Research() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* Initiatives folded in — early-stage directions, not finished products */}
+        <div className="mt-24">
+          <p data-reveal className="ui-label mb-6 text-silver">
+            Initiatives in development
+          </p>
+          <div className="grid gap-5 md:grid-cols-2">
+            {initiatives.map((it) => (
+              <article key={it.id} data-reveal className="flex gap-5 border border-border bg-charcoal/60 p-5">
+                <div className="h-24 w-24 shrink-0 overflow-hidden md:h-28 md:w-28">
+                  <img src={it.image} alt={it.imageAlt} loading="lazy" className="h-full w-full object-cover" />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="display text-3xl md:text-4xl">{it.name}</h3>
+                    <span className="ui-label border border-paper/40 px-2 py-1 text-[0.58rem]">Concept · In development</span>
+                  </div>
+                  <p className="ui-label mt-1 text-vermilion-glow">{it.category}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-paper/75">{it.concept}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>

@@ -51,14 +51,10 @@ export function About() {
               real world.
             </p>
             <p data-reveal>
-              I'm drawn to the space where hardware meets software — from an ESP32-powered robotic rover to a
-              computer-vision system that steers it with hand gestures, and independent research into recovering
-              energy from vehicle suspension.
-            </p>
-            <p data-reveal>
+              I'm drawn to the space where hardware meets software — an ESP32 rover, a computer-vision system that
+              steers it with hand gestures, independent research into recovering energy from vehicle suspension.
               Leading technical projects and exhibition teams has taught me that engineering is as much about people
-              as parts. I'm especially curious about emerging technologies that make the world more accessible —
-              technology that matters to people and communities.
+              as parts.
             </p>
           </div>
 

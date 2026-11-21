@@ -15,7 +15,7 @@ export const person = {
   status: "Hyderabad, India — Exploring what's next.",
   role: "Class XII · MPC · MS Junior College",
   intro:
-    "An aspiring engineer and researcher exploring robotics, artificial intelligence, computer vision, and technology for meaningful impact.",
+    "An aspiring engineer exploring robotics, AI and computer vision — and building technology for meaningful impact.",
   portrait: portraitAsset.url,
 };
 
@@ -24,7 +24,6 @@ export const navItems = [
   { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "research", label: "Research" },
-  { id: "initiatives", label: "Initiatives" },
   { id: "contact", label: "Contact" },
 ] as const;
 
@@ -35,13 +34,12 @@ export const contactLinks: { label: string; href: string | null; display: string
 ];
 
 export const interests = [
-  "Computer Science",
+  "Robotics & Autonomous Systems",
   "Artificial Intelligence",
   "Computer Vision",
-  "Robotics & Autonomous Systems",
   "Embedded Systems",
-  "Engineering Research",
   "Energy Systems",
+  "Engineering Research",
 ];
 
 export const timeline = [
@@ -86,7 +84,7 @@ export const projects: Project[] = [
     role: "Founder & Lead Engineer",
     tagline: "A field robot for disaster inspection and environmental mapping.",
     description:
-      "An experimental robotic rover developed for disaster inspection and environmental mapping. It combines embedded electronics, sensor integration, motor control, wireless communication and robotic movement into one platform.",
+      "An experimental rover for disaster inspection and environmental mapping — one platform combining embedded electronics, sensing, motor control and a wireless link.",
     image: roverArt,
     imageAlt: "Abstract orange chrome sculpture of a six-wheeled rover",
     heroImage: {
@@ -105,7 +103,7 @@ export const projects: Project[] = [
     category: "Artificial Intelligence / Computer Vision / Robotics",
     tagline: "Drive a robot with nothing but your hand.",
     description:
-      "A computer-vision control system that lets a user steer the ESP32 rover through hand gestures — linking landmark tracking and gesture classification directly to robotic motion over Bluetooth Low Energy.",
+      "A computer-vision system that steers the ESP32 rover with hand gestures — landmark tracking and gesture classification driving motion over Bluetooth Low Energy.",
     image: gestureArt,
     imageAlt: "Abstract fragmented robotic hand in red, blue and pink on purple",
     theme: "violet",
@@ -119,7 +117,7 @@ export const projects: Project[] = [
     category: "Independent Research / Energy Systems",
     tagline: "Where does the energy of a bumpy road go — and can we get it back?",
     description:
-      "An independent theoretical research project investigating energy recovery opportunities in vehicle suspension systems — exploring suspension dynamics, energy conversion and potential applications.",
+      "Independent theoretical research on recovering energy from vehicle suspension — suspension dynamics, energy conversion and the limits of doing it.",
     image: suspensionArt,
     imageAlt: "Silver coil spring dissolving into flowing electric blue energy",
     theme: "electric",
@@ -173,8 +171,7 @@ export const initiatives = [
     name: "VISTA",
     category: "AI / Accessibility / Computer Vision",
     concept:
-      "An initiative exploring AI-powered visual assistance for blind and low-vision users — investigating how computer vision and artificial intelligence can help people better understand their surroundings and access visual information.",
-    pillars: ["Accessibility", "Human-centred technology", "AI-powered assistance", "Practical problem-solving"],
+      "AI-powered visual assistance for blind and low-vision users — helping people understand their surroundings through computer vision.",
     image: vistaArt,
     imageAlt: "Abstract layered glass eye sculpture in violet, blue and orange",
   },
@@ -184,8 +181,7 @@ export const initiatives = [
     name: "AccessMap",
     category: "Accessibility / Community / Digital Mapping",
     concept:
-      "A community-powered initiative focused on mapping accessible locations and helping people discover places with useful accessibility information.",
-    pillars: ["Inclusive infrastructure", "Community participation", "Accessible navigation", "Social impact through technology"],
+      "A community-powered map of accessible locations, so people can find places with useful accessibility information.",
     image: accessmapArt,
     imageAlt: "Abstract off-white topographic city model with glowing orange routes",
   },
@@ -214,7 +210,7 @@ export const achievementGroups = [
   {
     title: "Science & innovation",
     items: [
-      "First place at a state-level science exhibition",
+      "First place, state-level science exhibition",
       "Multiple science exhibition participations",
       "Led three-member science exhibition teams",
     ],
@@ -228,12 +224,12 @@ export const achievementGroups = [
     ],
   },
   {
-    title: "Leadership",
-    items: ["House Captain in Grade X", "Responsibilities spanning ~450 students and a 20-member cabinet"],
-  },
-  {
-    title: "Beyond the lab",
-    items: ["Competitive speedcubing", "Participant, SFA India Nationals", "Teaches Rubik's Cube solving to other students"],
+    title: "Leadership & beyond",
+    items: [
+      "House Captain in Grade X — ~450 students, 20-member cabinet",
+      "Competitive speedcubing; SFA India Nationals participant",
+      "Teaches Rubik's Cube solving to other students",
+    ],
   },
 ];
 
@@ -242,7 +238,7 @@ export const skillGroups = [
   {
     code: "HW",
     title: "Robotics & Embedded",
-    items: ["ESP32", "Embedded electronics", "Sensor integration", "Motor control", "Bluetooth Low Energy", "Hardware prototyping"],
+    items: ["ESP32", "Sensor integration", "Motor control", "Bluetooth Low Energy", "Hardware prototyping"],
   },
   { code: "AI", title: "Artificial Intelligence", items: ["Computer vision", "Hand landmark tracking", "Gesture recognition", "AI applications"] },
   {
@@ -253,6 +249,6 @@ export const skillGroups = [
   {
     code: "LC",
     title: "Leadership & Communication",
-    items: ["Team leadership", "Project coordination", "Science exhibitions", "Public speaking", "Collaborative problem-solving"],
+    items: ["Team leadership", "Project coordination", "Science exhibitions", "Public speaking"],
   },
 ];

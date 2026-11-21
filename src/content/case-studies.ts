@@ -24,7 +24,6 @@ export const caseStudies: Record<ProjectSlug, CaseStudy> = {
         heading: "Going where people shouldn't have to.",
         paragraphs: [
           "After a disaster, the first look inside a damaged structure is often the most dangerous one. The rover began as a question: could a small, low-cost robot take that first look instead — and map what it finds?",
-          "The project became a hands-on way to bring together everything that makes a mobile robot work: power, motion, sensing, feedback and wireless control.",
         ],
       },
       {
@@ -39,15 +38,7 @@ export const caseStudies: Record<ProjectSlug, CaseStudy> = {
         kicker: "Decisions",
         heading: "Engineering trade-offs.",
         paragraphs: [
-          "Motor driver: the TB6612FNG is a compact MOSFET-based dual H-bridge, well suited to small DC motors at the current levels a rover like this draws.",
-          "Regulation: a switching regulator (LM2596) instead of a linear one keeps more battery energy for driving rather than losing it as heat.",
-          "Sensing: an HC-SR04 ultrasonic sensor provides simple, robust distance measurements — a practical first step toward obstacle awareness and mapping.",
-        ],
-      },
-      {
-        kicker: "Process",
-        heading: "Build, test, rewire, repeat.",
-        paragraphs: [
+          "A switching regulator instead of a linear one keeps more battery energy for driving rather than losing it as heat; the TB6612FNG suits the current a small rover draws; an HC-SR04 gives simple, robust distance measurements as a first step toward obstacle awareness.",
           "Development moved through clear stages — defining the mission, prototyping subsystems individually, integrating them on one chassis, then testing and iterating on wiring, power and control behaviour.",
         ],
       },
@@ -73,15 +64,8 @@ export const caseStudies: Record<ProjectSlug, CaseStudy> = {
         kicker: "Vision",
         heading: "From pixels to landmarks.",
         paragraphs: [
-          "OpenCV captures the camera stream; MediaPipe detects the hand and tracks its landmarks, including fingertip positions, frame by frame.",
-          "Finger states are then classified into a small vocabulary of gestures, each mapped to a rover command.",
-        ],
-      },
-      {
-        kicker: "Stability",
-        heading: "Filtering the noise.",
-        paragraphs: [
-          "Raw per-frame predictions flicker. Temporal stability filtering only accepts a gesture once it has held steady across consecutive frames, so the rover doesn't twitch on a misread.",
+          "OpenCV captures the camera stream; MediaPipe detects the hand and tracks its landmarks, including fingertip positions, frame by frame. Finger states are then classified into a small vocabulary of gestures, each mapped to a rover command.",
+          "Raw per-frame predictions flicker, so temporal stability filtering only accepts a gesture once it has held steady across consecutive frames — the rover doesn't twitch on a misread.",
         ],
       },
       {
@@ -107,37 +91,29 @@ export const caseStudies: Record<ProjectSlug, CaseStudy> = {
         kicker: "01 — Motivation",
         heading: "Energy we throw away on every bump.",
         paragraphs: [
-          "Conventional shock absorbers work by converting the kinetic energy of suspension motion into heat. That energy is simply dissipated. The research asks whether part of it could, in principle, be captured and reused instead.",
+          "Conventional shock absorbers convert the kinetic energy of suspension motion into heat. That energy is simply dissipated. The research asks whether part of it could, in principle, be captured and reused instead.",
         ],
       },
       {
-        kicker: "02 — Theoretical framework",
+        kicker: "02 — Framework",
         heading: "Suspension as an energy converter.",
         paragraphs: [
-          "The study frames the suspension as a spring–damper system excited by the road surface. The power dissipated by the damper relates to the damping force and the relative velocity between the wheel and the body — the quantity a regenerative system would try to harvest.",
+          "The study frames the suspension as a spring–damper system excited by the road surface. The power dissipated by the damper relates to the damping force and the relative velocity between wheel and body — the quantity a regenerative system would try to harvest.",
         ],
       },
       {
-        kicker: "03 — Methodology",
+        kicker: "03 — Method & concepts",
         heading: "Reasoning from first principles.",
         paragraphs: [
-          "The approach is analytical and literature-based: reviewing suspension dynamics, comparing families of energy-recovery mechanisms, and reasoning about where energy is available and what constrains its capture.",
-        ],
-      },
-      {
-        kicker: "04 — Engineering concepts",
-        heading: "Ways to turn motion into electricity.",
-        paragraphs: [
-          "Concepts explored include electromagnetic linear generators, rotary generators driven through mechanical conversion such as ball-screw or rack mechanisms, and hydraulic approaches that route fluid through a generator.",
+          "The approach is analytical and literature-based: reviewing suspension dynamics and comparing families of energy-recovery mechanisms — electromagnetic linear generators, rotary generators driven through ball-screw or rack mechanisms, and hydraulic routes through a generator.",
           "Each must balance energy capture against what a suspension exists for in the first place: ride comfort, road holding and safety.",
         ],
       },
       {
-        kicker: "05 — Findings & limitations",
+        kicker: "04 — Findings & limitations",
         heading: "Promising, with honest caveats.",
         paragraphs: [
-          "The exploration identifies suspension motion as a genuine source of recoverable energy, with outcomes strongly dependent on road conditions, vehicle type and mechanism design.",
-          "Limitations: conclusions are qualitative and theoretical. Real-world efficiency, durability, cost and the effect on vehicle handling would all require modelling with real data and physical prototyping to confirm.",
+          "Suspension motion is a genuine source of recoverable energy, with outcomes strongly dependent on road conditions, vehicle type and mechanism design. Conclusions here are qualitative and theoretical: real efficiency, durability, cost and handling effects would need modelling with real data and physical prototyping to confirm.",
         ],
       },
     ],

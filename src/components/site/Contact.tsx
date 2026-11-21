@@ -75,7 +75,7 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="grain bg-hero relative overflow-hidden px-5 py-28 text-ink md:px-8 md:py-40">
       <SectionHeading
-        index="08"
+        index="06"
         label="Contact"
         id="contact-title"
         lines={[
@@ -88,8 +88,7 @@ export function Contact() {
       <div className="mt-20 grid gap-16 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-4">
           <p data-reveal className="font-ui text-xl leading-snug md:text-2xl">
-            Interested in engineering, research, technology, accessibility, or building something ambitious together?
-            Let's connect.
+            Interested in engineering, research or building something ambitious together? Let's connect.
           </p>
           <ul data-reveal className="mt-12 border-t-2 border-ink">
             {contactLinks.map((l) => (

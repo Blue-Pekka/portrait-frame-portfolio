@@ -5,10 +5,8 @@ import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
 import { Work } from "@/components/site/Work";
-import { Initiatives } from "@/components/site/Initiatives";
 import { Research } from "@/components/site/Research";
 import { Achievements } from "@/components/site/Achievements";
-import { Skills } from "@/components/site/Skills";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { useReveal } from "@/hooks/use-reveal";
@@ -46,10 +44,8 @@ function Index() {
         <Hero />
         <About />
         <Work />
-        <Initiatives />
         <Research />
         <Achievements />
-        <Skills />
         <Contact />
       </main>
       <Footer />
