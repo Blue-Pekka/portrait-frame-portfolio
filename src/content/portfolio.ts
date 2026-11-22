@@ -1,10 +1,10 @@
 import roverArt from "@/assets/rover-art.webp";
 import gestureArt from "@/assets/gesture-art.webp";
 import suspensionArt from "@/assets/suspension-art.webp";
-import portraitAsset from "@/assets/raqeeb-portrait.webp.asset.json";
-import roverPhotoAsset from "@/assets/rover-photo.webp.asset.json";
-import roverCad1Asset from "@/assets/rover-cad-1.webp.asset.json";
-import roverCad2Asset from "@/assets/rover-cad-2.webp.asset.json";
+import portrait from "@/assets/raqeeb-portrait.webp";
+import roverPhoto from "@/assets/rover-photo.webp";
+import roverCad1 from "@/assets/rover-cad-1.webp";
+import roverCad2 from "@/assets/rover-cad-2.webp";
 
 export const person = {
   name: "Mohammad Abdul Raqeeb",
@@ -13,7 +13,7 @@ export const person = {
   role: "Class XII · MPC · MS Junior College",
   intro:
     "A Class XII student from Hyderabad applying to study engineering. I like building things that work — a robot rover, a gesture-controlled robot, and a short research paper on energy from car suspensions.",
-  portrait: portraitAsset.url,
+  portrait: portrait,
 };
 
 export const navItems = [
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     image: roverArt,
     imageAlt: "Abstract orange chrome sculpture of a six-wheeled rover",
     heroImage: {
-      src: roverPhotoAsset.url,
+      src: roverPhoto,
       alt: "The assembled rover on a wooden table: matte black 3D-printed body, OLED reading RAQEEB ROBOT and MODE: MANUAL, ultrasonic sensor in the front opening and knobby rubber tyres",
       aspect: "7 / 8",
     },
@@ -167,14 +167,14 @@ export const roverBuild = {
     "The shell starts as a model. These two views are the CAD part; the photo at the top of this page is the same cover printed in matte black PLA and fitted with the display and sensor.",
   shots: [
     {
-      src: roverCad1Asset.url,
+      src: roverCad1,
       alt: "CAD model of the rover chassis top cover seen from the front three-quarter, showing the display recess and sensor opening",
       label: "Chassis cover — CAD, front",
       caption:
         "Modelled in SOLIDWORKS: the recess that holds the display, the opening for the ultrasonic sensor, the ventilation slots and the wheel arch.",
     },
     {
-      src: roverCad2Asset.url,
+      src: roverCad2,
       alt: "CAD model of the rover chassis top cover seen from the rear three-quarter, showing the cooling slots and the curved wheel well",
       label: "Chassis cover — CAD, rear",
       caption: "The same part from the opposite side — cooling slots and the curved wheel well, before it was printed.",
