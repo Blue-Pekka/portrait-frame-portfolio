@@ -31,7 +31,8 @@ use the editor.
 
 ## Project rules
 - All portfolio copy and data live in `src/content/` (portfolio.ts, case-studies.ts); components only render it — keeps edits to text in one place.
-- Home is one scrolling page of section components in `src/components/site/`; project case studies are separate routes at `/work/$slug` so each has its own URL and metadata.
-- Scroll motion goes through `useReveal` data attributes (`data-reveal`, `data-reveal-lines`, `data-img-reveal`, `data-parallax`, `data-draw`) and must leave content visible without JS or with reduced motion.
-- The 3D hero sculpture mounts only through `SculptureSlot` (lazy import, one canvas per viewport, WebGL probe + error boundary + static fallback) — three.js must never load during SSR, and a failed WebGL context must never blank the page.
+- Home is one short scrolling page (Hero → Academics → Extracurriculars → Contact) of section components in `src/components/site/`; project case studies stay separate routes at `/work/$slug` so each has its own URL and metadata.
+- Scroll motion goes through `useReveal` data attributes (mainly a subtle `data-reveal` fade) and must leave content visible without JS or with reduced motion.
+- Colours come only from the tokens in `src/styles.css`; legacy token names (vermilion, violet, electric) are retuned to muted values rather than renamed, so old classes stay calm.
+- No 3D/WebGL, intro loader or custom cursor — the site is a quick read for admissions reviewers, so it stays light and plain.
 - Contact form inserts straight into `contact_messages` from the browser; RLS allows anonymous insert only, no reads.

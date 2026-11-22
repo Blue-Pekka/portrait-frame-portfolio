@@ -34,7 +34,7 @@ export function GesturePipeline() {
                 setActive(i);
               }}
               aria-current={on ? "step" : undefined}
-              className={`flex h-full w-full flex-col justify-between gap-10 p-5 text-left transition-colors duration-500 md:min-h-72 ${on ? "bg-vermilion text-ink" : done ? "bg-paper/10" : "bg-transparent"}`}
+              className={`flex h-full w-full flex-col justify-between gap-10 p-5 text-left transition-colors duration-500 md:min-h-72 ${on ? "bg-primary text-primary-foreground" : done ? "bg-paper/10" : "bg-transparent"}`}
             >
               <span className="ui-label flex w-full justify-between">
                 <span>0{i + 1}</span>
@@ -42,7 +42,7 @@ export function GesturePipeline() {
               </span>
               <span>
                 <span className="display block text-3xl leading-[0.95] md:text-[2rem]">{s.step}</span>
-                <span className={`mt-3 block font-ui text-sm ${on ? "text-ink/80" : "text-paper/65"}`}>{s.detail}</span>
+                <span className={`mt-3 block font-ui text-sm ${on ? "text-primary-foreground/85" : "text-paper/65"}`}>{s.detail}</span>
               </span>
             </button>
           </li>

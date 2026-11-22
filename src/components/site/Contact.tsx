@@ -1,17 +1,17 @@
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import { ArrowUpRight, Loader2 } from "lucide-react";
+import { LinkButtons } from "./LinkButtons";
 import { SectionHeading } from "./SectionHeading";
-import { contactLinks } from "@/content/portfolio";
 import { contactSchema } from "@/lib/contact";
 import { supabase } from "@/integrations/supabase/client";
 
 type Field = "name" | "email" | "subject" | "message";
 
 const fieldClass =
-  "peer w-full border-0 border-b-2 border-ink/40 bg-transparent px-0 pb-3 pt-6 font-ui text-xl text-ink placeholder-transparent outline-none transition-colors focus:border-ink focus-visible:outline-none md:text-2xl";
+  "peer w-full border-0 border-b border-input bg-transparent px-0 pb-2.5 pt-6 font-ui text-lg text-foreground placeholder-transparent outline-none transition-colors focus:border-primary focus-visible:outline-none";
 const labelClass =
-  "ui-label pointer-events-none absolute left-0 top-0 text-ink/70 transition-all peer-placeholder-shown:top-7 peer-placeholder-shown:text-base peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-focus:top-0 peer-focus:text-[0.72rem] peer-focus:uppercase peer-focus:tracking-[0.14em]";
+  "ui-label pointer-events-none absolute left-0 top-0 text-muted-foreground transition-all peer-placeholder-shown:top-7 peer-placeholder-shown:text-base peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-focus:top-0 peer-focus:text-[0.72rem] peer-focus:uppercase peer-focus:tracking-[0.14em]";
 
 export function Contact() {
   const [values, setValues] = useState<Record<Field, string>>({ name: "", email: "", subject: "", message: "" });
@@ -65,7 +65,7 @@ export function Contact() {
         {label}
       </label>
       {errors[f] && (
-        <p id={`contact-${f}-error`} className="ui-label mt-2 text-ink">
+        <p id={`contact-${f}-error`} className="mt-2 text-sm text-destructive">
           ↳ {errors[f]}
         </p>
       )}
@@ -73,51 +73,32 @@ export function Contact() {
   );
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="grain bg-hero relative overflow-hidden px-5 py-28 text-ink md:px-8 md:py-40">
-      <SectionHeading
-        index="06"
-        label="Contact"
-        id="contact-title"
-        lines={[
-          { text: "Let's build" },
-          { text: "something", className: "md:pl-[12vw]" },
-          { text: "meaningful.", className: "text-outline-ink" },
-        ]}
-      />
-
-      <div className="mt-20 grid gap-16 md:grid-cols-12 md:gap-8">
-        <div className="md:col-span-4">
-          <p data-reveal className="font-ui text-xl leading-snug md:text-2xl">
-            Interested in engineering, research or building something ambitious together? Let's connect.
-          </p>
-          <ul data-reveal className="mt-12 border-t-2 border-ink">
-            {contactLinks.map((l) => (
-              <li key={l.label} className="border-b border-ink/40">
-                {l.href ? (
-                  <a
-                    href={l.href}
-                    {...(l.href.startsWith("mailto:") ? {} : { target: "_blank", rel: "noreferrer" })}
-                    className="group flex min-w-0 items-center justify-between gap-4 py-4"
-                  >
-                    <span className="ui-label">{l.label}</span>
-                    <span className="flex min-w-0 items-center gap-2 font-ui">
-                      <span className="truncate">{l.display}</span>
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </span>
-                  </a>
-                ) : (
-                  <div className="flex items-center justify-between py-4">
-                    <span className="ui-label">{l.label}</span>
-                    <span className="font-ui text-ink/55">{l.display}</span>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
+    <section id="contact" aria-labelledby="contact-title" className="border-t border-border bg-secondary px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12 md:gap-10">
+        <div className="md:col-span-5">
+          <SectionHeading
+            index="03"
+            label="Contact"
+            title="Get in touch"
+            id="contact-title"
+            intro="Happy to answer questions about my work or application. Email is the quickest way to reach me."
+          />
+          <a href="mailto:a.raqeeb2468@gmail.com" data-reveal className="mt-8 inline-block font-ui text-lg text-primary underline-offset-4 hover:underline">
+            a.raqeeb2468@gmail.com
+          </a>
+          <div data-reveal>
+            <LinkButtons className="mt-6" />
+          </div>
         </div>
 
-        <form data-reveal onSubmit={onSubmit} noValidate className="space-y-8 md:col-span-7 md:col-start-6" aria-label="Contact form">
-          <div className="grid gap-8 md:grid-cols-2">
+        <form
+          data-reveal
+          onSubmit={onSubmit}
+          noValidate
+          className="space-y-6 rounded-md border border-border bg-card p-6 md:col-span-7 md:p-8"
+          aria-label="Contact form"
+        >
+          <div className="grid gap-6 md:grid-cols-2">
             {input("name", "Your name", "text", "name")}
             {input("email", "Email address", "email", "email")}
           </div>
@@ -126,7 +107,7 @@ export function Contact() {
             <textarea
               id="contact-message"
               name="message"
-              rows={5}
+              rows={4}
               placeholder="Your message"
               value={values.message}
               onChange={update("message")}
@@ -138,24 +119,23 @@ export function Contact() {
               Your message
             </label>
             {errors.message && (
-              <p id="contact-message-error" className="ui-label mt-2 text-ink">
+              <p id="contact-message-error" className="mt-2 text-sm text-destructive">
                 ↳ {errors.message}
               </p>
             )}
           </div>
-          <div className="flex flex-wrap items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4">
             <button
               type="submit"
               disabled={status === "sending"}
-              data-cursor="Send"
-              className="display group inline-flex items-center gap-4 bg-ink px-8 py-5 text-3xl text-paper transition-colors hover:bg-paper hover:text-ink disabled:opacity-60 md:text-4xl"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 font-ui text-sm text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
             >
-              {status === "sending" ? <Loader2 className="h-7 w-7 animate-spin" /> : null}
+              {status === "sending" ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
               {status === "sending" ? "Sending" : "Send message"}
-              <ArrowUpRight className="h-7 w-7 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+              <ArrowUpRight className="h-4 w-4" />
             </button>
             {status === "sent" && (
-              <p role="status" className="ui-label">
+              <p role="status" className="text-sm text-muted-foreground">
                 ✓ Received. I'll get back to you soon.
               </p>
             )}

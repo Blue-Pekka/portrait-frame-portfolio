@@ -83,7 +83,7 @@ export const caseStudies: Record<ProjectSlug, CaseStudy> = {
       { label: "Type", value: "Theoretical study" },
       { label: "Field", value: "Energy systems · Vehicle dynamics" },
       { label: "Validation", value: "Not physically tested" },
-      { label: "Publication", value: "Link to be added" },
+      { label: "Published", value: "Zenodo · Oct 2026" },
     ],
     note: "This is a theoretical exploration. It does not claim experimental results or physical validation of any model.",
     sections: [

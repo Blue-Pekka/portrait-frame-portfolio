@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useRef } from "react";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { projects, roverComponents, type Project } from "@/content/portfolio";
+import { projects, researchPaper, roverComponents, type Project } from "@/content/portfolio";
 import { caseStudies } from "@/content/case-studies";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
@@ -35,9 +35,9 @@ export const Route = createFileRoute("/work/$slug")({
 });
 
 const themes: Record<Project["theme"], { hero: string; accent: string; body: string }> = {
-  vermilion: { hero: "bg-hero text-ink", accent: "text-ink", body: "bg-paper text-ink" },
-  violet: { hero: "bg-violet-field text-paper", accent: "text-vermilion-glow", body: "bg-violet-deep text-paper" },
-  electric: { hero: "bg-ink text-paper", accent: "text-electric", body: "bg-charcoal text-paper" },
+  vermilion: { hero: "bg-secondary text-foreground", accent: "text-primary", body: "bg-background text-foreground" },
+  violet: { hero: "bg-secondary text-foreground", accent: "text-primary", body: "bg-background text-foreground" },
+  electric: { hero: "bg-secondary text-foreground", accent: "text-primary", body: "bg-background text-foreground" },
 };
 
 function ProjectPage() {
@@ -56,15 +56,15 @@ function ProjectPage() {
       <main id="main" ref={mainRef} key={slug}>
         {/* Hero */}
         <section className={`grain relative overflow-hidden px-5 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40 ${theme.hero}`}>
-          <Link to="/" hash="work" className="ui-label inline-flex items-center gap-2 hover:opacity-70">
-            <ArrowLeft className="h-4 w-4" /> All work
+          <Link to="/" hash="activities" className="ui-label inline-flex items-center gap-2 hover:opacity-70">
+            <ArrowLeft className="h-4 w-4" /> Back to portfolio
           </Link>
           <div className="mt-12 grid gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
               <p data-reveal className="ui-label">
                 Project {project.index} — {project.category}
               </p>
-              <h1 data-reveal-lines className="display mt-6 text-[15vw] md:text-[8.2vw]">
+              <h1 data-reveal-lines className="display mt-6 text-5xl md:text-7xl">
                 {project.title.split(" ").reduce<string[][]>((acc, w, i) => {
                   if (i % 2 === 0) acc.push([w]);
                   else acc[acc.length - 1]!.push(w);
@@ -75,9 +75,20 @@ function ProjectPage() {
                   </span>
                 ))}
               </h1>
-              <p data-reveal className="serif-accent mt-8 max-w-xl text-3xl leading-tight md:text-4xl">
+              <p data-reveal className="serif-accent mt-6 max-w-xl text-2xl leading-tight text-muted-foreground md:text-3xl">
                 {project.tagline}
               </p>
+              {project.slug === "suspension-energy" && (
+                <a
+                  href={researchPaper.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-reveal
+                  className="mt-8 inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 font-ui text-sm text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  Read the full paper <ArrowUpRight className="h-4 w-4" aria-hidden />
+                </a>
+              )}
             </div>
             <div className="md:col-span-5">
               <div
@@ -113,7 +124,7 @@ function ProjectPage() {
         <section className={`px-5 py-24 md:px-8 md:py-32 ${theme.body}`}>
           <div className="grid gap-10 md:grid-cols-12">
             <p className="ui-label md:col-span-3" data-reveal>Overview</p>
-            <p data-reveal className="font-ui text-2xl leading-snug md:col-span-8 md:text-4xl">
+            <p data-reveal className="font-ui text-xl leading-snug md:col-span-8 md:text-2xl">
               {project.description}
             </p>
           </div>
@@ -129,16 +140,16 @@ function ProjectPage() {
 
         {/* Interactive module */}
         {project.slug === "esp32-rover" && (
-          <section className="bg-hero grain px-5 py-24 text-ink md:px-8 md:py-32">
+          <section className="border-t border-border bg-secondary px-5 py-24 md:px-8 md:py-32">
             <p className="ui-label" data-reveal>Hardware architecture</p>
-            <h2 data-reveal className="display mt-4 mb-14 text-6xl md:text-8xl">System map</h2>
+            <h2 data-reveal className="display mt-4 mb-12 text-4xl md:text-5xl">System map</h2>
             <RoverDiagram />
           </section>
         )}
         {project.slug === "gesture-controller" && (
           <section className="bg-ink px-5 py-24 text-paper md:px-8 md:py-32">
-            <p className="ui-label text-vermilion" data-reveal>Visual pipeline</p>
-            <h2 data-reveal className="display mt-4 mb-14 text-6xl md:text-8xl">Hand → robot</h2>
+            <p className="ui-label text-primary-foreground/70" data-reveal>Visual pipeline</p>
+            <h2 data-reveal className="display mt-4 mb-12 text-4xl md:text-5xl">Hand → robot</h2>
             <GesturePipeline />
           </section>
         )}
@@ -148,11 +159,11 @@ function ProjectPage() {
           <div className="space-y-24 md:space-y-32">
             {study.sections.map((s) => (
               <article key={s.heading} className="grid gap-6 md:grid-cols-12">
-                <p data-reveal className={`ui-label md:col-span-3 ${project.theme === "vermilion" ? "text-vermilion" : theme.accent}`}>
+                <p data-reveal className={`ui-label md:col-span-3 ${theme.accent}`}>
                   {s.kicker}
                 </p>
                 <div className="md:col-span-8">
-                  <h2 data-reveal className="display text-5xl md:text-7xl">{s.heading}</h2>
+                  <h2 data-reveal className="display text-3xl md:text-5xl">{s.heading}</h2>
                   <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed opacity-85">
                     {s.paragraphs.map((p) => (
                       <p key={p} data-reveal>{p}</p>
@@ -166,9 +177,9 @@ function ProjectPage() {
 
         {/* Component breakdown (rover) */}
         {project.slug === "esp32-rover" && (
-          <section className="bg-ink px-5 py-24 text-paper md:px-8 md:py-32">
-            <p className="ui-label text-vermilion" data-reveal>Bill of materials</p>
-            <h2 data-reveal className="display mt-4 mb-12 text-6xl md:text-8xl">Component breakdown</h2>
+          <section className="border-t border-border bg-secondary px-5 py-24 md:px-8 md:py-32">
+            <p className="ui-label text-primary" data-reveal>Bill of materials</p>
+            <h2 data-reveal className="display mt-4 mb-12 text-4xl md:text-5xl">Component breakdown</h2>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[40rem] border-t border-border text-left">
                 <thead>
@@ -181,7 +192,7 @@ function ProjectPage() {
                 </thead>
                 <tbody>
                   {roverComponents.map((c, i) => (
-                    <tr key={c.id} className="group border-t border-border transition-colors hover:bg-vermilion hover:text-ink">
+                    <tr key={c.id} className="group border-t border-border transition-colors hover:bg-card">
                       <td className="ui-label py-5 pr-4">{String(i + 1).padStart(2, "0")}</td>
                       <td className="display py-5 pr-4 text-2xl md:text-3xl">{c.name}</td>
                       <td className="py-5 pr-4 font-ui">{c.role}</td>
@@ -195,13 +206,13 @@ function ProjectPage() {
         )}
 
         {/* Tech */}
-        <section className="bg-ink px-5 py-20 text-paper md:px-8">
+        <section className="border-t border-border px-5 py-16 md:px-8">
           <p className="ui-label text-muted-foreground">Technology</p>
           <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
             {project.tech.map((t) => (
-              <li key={t} className="display text-3xl md:text-5xl">
+              <li key={t} className="display text-2xl md:text-3xl">
                 {t}
-                <span className="text-vermilion"> /</span>
+                <span className="text-primary"> /</span>
               </li>
             ))}
           </ul>
@@ -211,13 +222,13 @@ function ProjectPage() {
         <Link
           to="/work/$slug"
           params={{ slug: next.slug }}
-          data-cursor="Next"
-          className="group grain bg-hero block px-5 py-20 text-ink md:px-8 md:py-28"
+         
+          className="group block border-t border-border bg-secondary px-5 py-16 md:px-8 md:py-20"
         >
           <p className="ui-label">Next project — {next.index}</p>
-          <p className="display mt-4 flex items-end justify-between gap-6 text-[13vw] md:text-[8vw]">
+          <p className="display mt-4 flex items-end justify-between gap-6 text-4xl md:text-6xl">
             {next.title}
-            <ArrowUpRight className="h-[10vw] w-[10vw] shrink-0 transition-transform duration-500 group-hover:-translate-y-2 group-hover:translate-x-2 md:h-[6vw] md:w-[6vw]" />
+            <ArrowUpRight className="h-10 w-10 shrink-0 text-primary transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
           </p>
         </Link>
       </main>

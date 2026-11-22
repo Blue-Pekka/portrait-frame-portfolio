@@ -17,7 +17,7 @@ export function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
   if (lenisInstance) {
-    lenisInstance.scrollTo(el, { offset: 0, duration: 1.4 });
+    lenisInstance.scrollTo(el, { offset: -64, duration: 1.2 });
   } else {
     el.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" });
   }
